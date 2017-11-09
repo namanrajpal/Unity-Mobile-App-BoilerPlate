@@ -55,12 +55,13 @@ public class ScreenManager : MonoBehaviour
 
     public void GoBack()
     {
-        
-        currentllyOpen.SetActive(false);
-        GameObject screenToOpen = screenStack.Pop();
-        screenToOpen.SetActive(true);
-        currentllyOpen = screenToOpen;
-
+        if (currentllyOpen != initiallyOpen)
+        {
+            currentllyOpen.SetActive(false);
+            GameObject screenToOpen = screenStack.Pop();
+            screenToOpen.SetActive(true);
+            currentllyOpen = screenToOpen;
+        }
     }
     
 
